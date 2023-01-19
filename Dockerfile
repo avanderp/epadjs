@@ -14,7 +14,8 @@ RUN sed -i 's/react-scripts build/react-scripts --max_old_space_size=4096 build/
 # Install app dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
 ENV NODE_OPTIONS "--max-old-space-size=4096"
-RUN npm install
+RUN npm install --legacy-peer-deps
+#RUN npm install
 RUN npm run build
 
 FROM nginx:1.15
